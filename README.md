@@ -22,6 +22,16 @@ A Lord of the Rings themed forum where fans can register, log in, and discuss qu
 
 ---
 
+## 🌐 Live Demo
+
+- **Frontend:** https://middle-earth-qa.vercel.app
+- **Backend API:** https://middleearthqa-backend.onrender.com
+- **Database:** FreeSQLDatabase (remote MySQL)
+
+> Note: The backend is hosted on Render's free tier and may take 30-60 seconds to wake up on first request.
+
+---
+
 ## ⚙️ Installation Instructions
 
 ### Prerequisites
@@ -33,7 +43,7 @@ A Lord of the Rings themed forum where fans can register, log in, and discuss qu
 ### 1. Clone the Repository
 
 ```bash
-git clone <your-github-link>
+git clone https://github.com/DuvalLu/MiddleEarthQA.git
 ```
 
 ### 2. Database Setup
@@ -117,11 +127,3 @@ The app will open at `http://localhost:3000`
 - Passwords are hashed using bcrypt before storing
 - Authentication handled via JSON Web Tokens (JWT)
 - Environment variables used to protect sensitive credentials
-
-## 🌐 Live Demo
-
-- **Frontend:** https://middle-earth-qa.vercel.app
-- **Backend API:** https://middleearthqa-backend.onrender.com
-- **Database:** FreeSQLDatabase (remote MySQL)
-
-> Note: The backend is hosted on Render's free tier and may take 30-60 seconds to wake up on first request.

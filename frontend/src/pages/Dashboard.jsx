@@ -21,7 +21,7 @@ function Dashboard() {
     axios
       .get("https://middleearthqa-backend.onrender.com/api/categories")
       .then((res) => setCategories(res.data));
-  }, []);
+  }, [username, navigate]);
 
   useEffect(() => {
     if (selectedCategory) {

@@ -1,22 +1,31 @@
+// Load environment variables from .env file
+require("dotenv").config();
+
 const express = require("express");
 const cors = require("cors");
-require("dotenv").config(); // load .env variables
 
+// Initialize Express app
 const app = express();
 
+// Middleware - allow cross-origin requests from frontend
 app.use(cors());
+
+// Middleware - parse incoming JSON request bodies
 app.use(express.json());
 
+// Import route handlers
 const authRoutes = require("./routes/auth");
 const categoryRoutes = require("./routes/categories");
-const questionRoutes = require("./routes/questions"); // fix: plural to match answers route naming
-const answerRoutes = require("./routes/answers"); // don't forget answers!
+const questionRoutes = require("./routes/questions");
+const answerRoutes = require("./routes/answers");
 
-app.use("/api/auth", authRoutes);
-app.use("/api/categories", categoryRoutes);
-app.use("/api/questions", questionRoutes);
-app.use("/api/answers", answerRoutes);
+// Mount routes - all API endpoints are prefixed with /api
+app.use("/api/auth", authRoutes); // handles login and registration
+app.use("/api/categories", categoryRoutes); // handles forum categories
+app.use("/api/questions", questionRoutes); // handles questions per category
+app.use("/api/answers", answerRoutes); // handles answers per question
 
+// Start the server on the port defined in .env or default to 5000
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
